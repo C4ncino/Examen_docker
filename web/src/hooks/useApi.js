@@ -1,12 +1,18 @@
 export const useAPI = () => {
-    const get_endpoint = (end_point) => {
-        const api_url = 'http://127.0.0.1:5000/'
+    const get_endpoint = (api, end_point) => {
+        var api_url = ''
+        if (api === 'api'){
+            api_url = 'http://127.0.0.1:5001/'
+        }
+        else if(api === 'stat'){
+            api_url = 'http://127.0.0.1:5000/'
+        }
 
         return api_url + end_point
     }
 
-    const get = async (end_point) => {
-        const response = await fetch(get_endpoint(end_point), {
+    const get = async (api, end_point) => {
+        const response = await fetch(get_endpoint(api, end_point), {
             method: 'GET'
         })
 
@@ -21,8 +27,8 @@ export const useAPI = () => {
 
     }
 
-    const post = async (end_point, body) => {
-        const response = await fetch(get_endpoint(end_point), {
+    const post = async (api, end_point, body) => {
+        const response = await fetch(get_endpoint(api, end_point), {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -41,9 +47,9 @@ export const useAPI = () => {
 
     }
 
-    const put = async (end_point, body) => {
+    const put = async (api, end_point, body) => {
 
-        const response = await fetch(get_endpoint(end_point), {
+        const response = await fetch(get_endpoint(api, end_point), {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'

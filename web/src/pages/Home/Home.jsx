@@ -8,7 +8,7 @@ const Home = () => {
 
     const[packages, setPackages] = useState([]);
     const[_package, _setPackage] = useState('');
-    const[render, reRender] = useState(true)
+    const[render, reRender] = useState(true);
 
     const {
         get,
@@ -17,14 +17,14 @@ const Home = () => {
 
     const get_packages = async () => {
         
-        const data = await get('paquetes')
+        const data = await get('api', 'paquetes')
 
         setPackages(data)        
     }
 
     const search = async () => {
        
-        const data = await get('paquete/' + _package)
+        const data = await get('api', 'paquete/' + _package)
 
         if (data === false){
             setPackages([])   
@@ -36,13 +36,14 @@ const Home = () => {
 
     const add = async () => {
         
-        const data = await post('paquete', JSON.stringify({}))
+        const data = await post('api', 'paquete', JSON.stringify({}))
 
         get_packages()
     }
 
     useEffect(() => {
         get_packages()
+
     }, [render])
 
     return (
@@ -81,7 +82,7 @@ const Home = () => {
                         <p className='text-center text-2xl text-yellow-300'>No packages found</p> 
                         :
                         packages.map((item) => (
-                            <Package item={item} key={item['id']} render={render} reRender={reRender}/>
+                            <Package key={item['id']} item={item} render={render} reRender={reRender}/>
                         ))
                     }
 

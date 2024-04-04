@@ -1,7 +1,7 @@
 import { useAPI } from "../../../hooks/useApi";
 
 
-const Package = (item, render, Rerender) => {
+const Package = (item, render, reRender) => {
 
     const {
         put
@@ -9,11 +9,11 @@ const Package = (item, render, Rerender) => {
 
     const changeStatus = async (id, status) => {
         
-        const data = await put('paquete/' + id, JSON.stringify({
+        const data = await put('api', 'paquete/' + id, JSON.stringify({
             'estado': status
         }))
 
-        Rerender(!render)
+        reRender(!render)
 
     }
 

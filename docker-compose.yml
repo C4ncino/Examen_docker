@@ -6,6 +6,8 @@ services:
     volumes:
       - ./api:/app
     working_dir: /app
+    ports:
+      - "5001:5000"
     env_file:
       - .env.dev
     depends_on:

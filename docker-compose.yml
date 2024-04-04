@@ -9,7 +9,7 @@ services:
     ports:
       - "5001:5000"
     env_file:
-      - ./api/.env
+      - ./api/.env.dev
     depends_on:
       - db
     
@@ -21,7 +21,7 @@ services:
     ports:
       - "5000:5000"
     env_file:
-      - ./stats/.env
+      - ./stats/.env.dev
     links:
       - api
 
@@ -34,7 +34,7 @@ services:
     ports:
       - "5173:5173"
     env_file:
-      - ./web/.env
+      - ./web/.env.dev
     
   db:
     image: postgres:16.2-alpine

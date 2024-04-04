@@ -7,7 +7,7 @@ services:
       - ./api:/app
     working_dir: /app
     env_file:
-      - .env.dev
+      - ./api/.env
     depends_on:
       - db
     
@@ -16,10 +16,22 @@ services:
     volumes:
       - ./stats:/app
     working_dir: /app
-    ports:
-      - "5000:5000"
+    env_file:
+      - ./stats/.env
     links:
       - api
+
+  web:
+    build: ./web
+    volumes:
+      - ./web:/app
+      - node_modules:/app/node_modules
+    working_dir: /app
+    ports:
+      - "5173:5173"
+    links:
+      - api
+      - stats
     
   db:
     image: postgres:16.2-alpine
@@ -32,3 +44,4 @@ services:
 
 volumes:
   postgres_data:
+  node_modules:

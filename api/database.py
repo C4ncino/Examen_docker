@@ -14,9 +14,7 @@ class DB:
 
         #  Docker
         if db_type == '0':
-            self.db_url = f"postgresql://{db_user}:{db_password}@db:{db_port}/{db_name}"
-
-            print(self.db_url)
+            self.db_url = f"postgresql://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}"
         #  Local
         elif db_type == '1':
             self.db_url = f'user={db_user} password={db_password} host={db_host} port={db_port} dbname={db_name}'

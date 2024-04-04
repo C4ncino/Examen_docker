@@ -3,12 +3,10 @@ export const useAPI = () => {
         var api_url = ''
 
         if (api === 'api') {
-            // api_url = process.env.REACT_APP_API_URL
-            api_url = 'http://127.0.0.1:5001/'
+            api_url = import.meta.env.VITE_API_URL
         }
         else if (api === 'stat') {
-            // api_url = process.env.REACT_APP_API_STATS_URL
-            api_url = 'http://127.0.0.1:5000/'
+            api_url = import.meta.env.VITE_API_STATS_URL
         }
 
         return api_url + end_point

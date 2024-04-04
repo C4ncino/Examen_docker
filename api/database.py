@@ -45,7 +45,7 @@ class DB:
 
     def get_packages(self):
         
-        self.cur.execute("SELECT * FROM packages")
+        self.cur.execute("SELECT * FROM packages ORDER BY id ASC")
         
         data = []
         

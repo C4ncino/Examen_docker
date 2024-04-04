@@ -6,8 +6,6 @@ services:
     volumes:
       - ./api:/app
     working_dir: /app
-    ports:
-      - "5001:5000"
     env_file:
       - ./api/.env
     depends_on:
@@ -18,6 +16,8 @@ services:
     volumes:
       - ./stats:/app
     working_dir: /app
+    ports:
+      - "5000:5000"
     env_file:
       - ./stats/.env
     links:

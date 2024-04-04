@@ -1,28 +1,25 @@
 version: '3.8'
 
 services:
-  stats:
-    build: ./stats
-    ports:
-      - "5000:5000"
-    volumes:
-      - ./stats:/app
-    links:
-      - api
-    depends_on:
-      - api
-      - db
-    
   api:
     build: ./api
-    ports:
-      - "5001:5001"
     volumes:
       - ./api:/app
+    working_dir: /app
     env_file:
       - .env.dev
     depends_on:
       - db
+    
+  stats:
+    build: ./stats
+    volumes:
+      - ./stats:/app
+    working_dir: /app
+    ports:
+      - "5000:5000"
+    links:
+      - api
     
   db:
     image: postgres:16.2-alpine

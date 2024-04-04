@@ -5,7 +5,7 @@ import requests
 app = Flask(__name__)
 CORS(app)
 
-api_url = "http://127.0.0.1:5001/"
+api_url = "http://api:5000/"
 
 @app.route("/", methods=["GET"])
 def main():
@@ -41,4 +41,4 @@ def main():
         return "Error obtaining data", 500
 
 if __name__ == "__main__":
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=True, host="0.0.0.0")

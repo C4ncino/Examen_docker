@@ -22,7 +22,7 @@ def registrar_paquete():
 @app.route('/paquete/<id>', methods=['GET'])
 def obtener_estado_paquete(id):
     
-    package = db.get_package(int(id))
+    package = db.get_package(id)
     
     if package:
         return jsonify(package)
@@ -34,12 +34,13 @@ def obtener_estado_paquete(id):
 def actualizar_estado_paquete(id):
 
     data = request.get_json()
+
     if data.get('estado'):
         
-        package = db.get_package(int(id))
+        package = db.get_package(id)
 
         if package:
-            db.update_package(int(id), data['estado'])
+            db.update_package(id, data['estado'])
 
             return jsonify({'mensaje': 'Estado actualizado'})
         

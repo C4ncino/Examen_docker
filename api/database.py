@@ -69,7 +69,9 @@ class DB:
         if row is None:
             return None
         
-        data = {'id': row[0], 'estado': row[1]}
+        data = []
+        
+        data.append({'id': row[0], 'estado': row[1]})
         
         return data
     

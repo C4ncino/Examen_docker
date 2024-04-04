@@ -1,5 +1,6 @@
 # Examen Sistemas Distribuidos
-**By [C4ncino](https://github.com/C4ncino) & [JuanPabloGHC](https://github.com/JuanPabloGHC) **
+
+### By [C4ncino](https://github.com/C4ncino) & [JuanPabloGHC](https://github.com/JuanPabloGHC)
 
 ## Instalación 
 

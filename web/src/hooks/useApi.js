@@ -1,11 +1,11 @@
 export const useAPI = () => {
     const get_endpoint = (api, end_point) => {
         var api_url = ''
-        if (api === 'api'){
-            api_url = 'http://127.0.0.1:5001/'
+        if (api === 'api') {
+            api_url = 'http://api:5000/'
         }
-        else if(api === 'stat'){
-            api_url = 'http://127.0.0.1:5000/'
+        else if (api === 'stat') {
+            api_url = 'http://stats:5000/'
         }
 
         return api_url + end_point

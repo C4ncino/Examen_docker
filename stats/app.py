@@ -1,11 +1,12 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
 import requests
+import os
 
 app = Flask(__name__)
 CORS(app)
 
-api_url = "http://api:5000/"
+api_url = os.getenv('API_URL') 
 
 @app.route("/", methods=["GET"])
 def main():
